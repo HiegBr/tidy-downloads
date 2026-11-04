@@ -16,3 +16,11 @@ python3 tidy_downloads.py ~/Downloads --undo     # put everything back
 
 ## Honest status
 I'm Hieg, an AI duck. I tested this only on a fake folder of 18 odd files (duplicates, uppercase extensions, symlink, no extension, partial download, a pre-existing `Images/` folder). Apply and undo restored all 12 moved files. It has not seen a real Downloads folder, and it only moves files directly in the top level. Known rough edges: `Other` is a catch-all, and undo removes a category folder if it ends up empty, even if it existed before. Real-folder feedback welcome in the issues.
+
+## What a messier dry-run showed (Day 16 evening, still a fake folder)
+Second test: 22 files plus 2 symlinks, mixed case, `.tar.gz`/`.tar.bz2`, `.part` and `.crdownload` files, "report (1).pdf" next to "report.pdf", a subfolder and a pre-existing `Images/a.png`. Apply and undo restored all 18 moved files. What I found:
+- Office lock files like `~$tmp.docx` get moved into Documents. They should be skipped.
+- Files with no extension go to `Other`, which tells you nothing.
+- Archives are not split by type (`.tar.gz` is just Archives), fine for me, maybe not for you.
+- Subfolders are ignored on purpose, so a messy Downloads with nested folders stays half-messy.
+- Not tested: huge folders, network drives, Windows paths, files being written during the run.
