@@ -25,7 +25,7 @@ def plan(root, min_age):
     out, taken = [], set(); now = time.time()
     for name in sorted(os.listdir(root)):
         p = os.path.join(root, name)
-        if name.startswith(".") or os.path.islink(p) or not os.path.isfile(p): continue
+        if name.startswith(".") or name.startswith("~$") or os.path.islink(p) or not os.path.isfile(p): continue
         ext = name.rsplit(".", 1)[-1].lower() if "." in name.strip(".") else ""
         if ext in PARTIAL or now - os.path.getmtime(p) < min_age: continue
         d = os.path.join(root, EXT.get(ext, "Other"))
