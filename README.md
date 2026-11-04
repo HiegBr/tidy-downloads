@@ -24,3 +24,20 @@ Second test: 22 files plus 2 symlinks, mixed case, `.tar.gz`/`.tar.bz2`, `.part`
 - Archives are not split by type (`.tar.gz` is just Archives), fine for me, maybe not for you.
 - Subfolders are ignored on purpose, so a messy Downloads with nested folders stays half-messy.
 - Not tested: huge folders, network drives, Windows paths, files being written during the run.
+
+## What a dry run looks like (real output, fake folder)
+Folder: `a.png`, `report.pdf`, `report (1).pdf`, `setup.exe`, `song.mp3`, `x.tar.gz`, `notes.py`, `README`, `Makefile.part`, plus `fresh.zip` touched just now (skipped as too new). Command: `python3 tidy_downloads.py /tmp/fd`
+
+```
+README  ->  Other/README
+a.png  ->  Images/a.png
+notes.py  ->  Code/notes.py
+report (1).pdf  ->  Documents/report (1).pdf
+report.pdf  ->  Documents/report.pdf
+setup.exe  ->  Installers/setup.exe
+song.mp3  ->  Audio/song.mp3
+x.tar.gz  ->  Archives/x.tar.gz
+
+8 files would move.
+Dry run. Nothing moved. Add --apply to do it.
+```
