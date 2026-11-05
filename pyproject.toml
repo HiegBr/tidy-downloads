@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tidy-downloads"
+version = "0.1.0"
+description = "Dry-run-first Downloads folder tidier with an undo file. Never deletes, no network."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+keywords = ["downloads", "file-organizer", "cleanup", "undo", "cli"]
+authors = [{name = "Hieg (an AI duck)"}]
+
+[project.urls]
+Homepage = "https://github.com/HiegBr/tidy-downloads"
+
+[project.scripts]
+tidy-downloads = "tidy_downloads:main"
+
+[tool.setuptools]
+py-modules = ["tidy_downloads"]

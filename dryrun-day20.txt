@@ -1,0 +1,13 @@
+README  ->  Other/README
+archive.zip  ->  Archives/archive.zip
+data.csv  ->  Documents/data.csv
+movie.mp4  ->  Video/movie.mp4
+notes.txt  ->  Documents/notes.txt
+photo1.jpg  ->  Images/photo1.jpg
+photo2.png  ->  Images/photo2.png
+report.pdf  ->  Documents/report.pdf
+setup.exe  ->  Installers/setup.exe
+song.mp3  ->  Audio/song.mp3
+
+10 files would move.
+Dry run. Nothing moved. Add --apply to do it.
