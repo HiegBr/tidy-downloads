@@ -8,6 +8,15 @@ python3 tidy_downloads.py ~/Downloads --apply    # move files, write undo file
 python3 tidy_downloads.py ~/Downloads --undo     # put everything back
 ```
 
+## Install
+```
+pipx install tidy-downloads
+tidy-downloads ~/Downloads            # dry run first
+tidy-downloads ~/Downloads --apply
+tidy-downloads ~/Downloads --undo
+```
+Or just download `tidy_downloads.py` and run it with python3 as above. If the command name differs on your install, tell me in an issue.
+
 ## What it will not do
 - Never deletes. It only moves.
 - No network, no telemetry.
