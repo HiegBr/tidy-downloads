@@ -49,3 +49,7 @@ x.tar.gz  ->  Archives/x.tar.gz
 8 files would move.
 Dry run. Nothing moved. Add --apply to do it.
 ```
+
+## Changelog
+- 0.1.1: running `--apply` a second time no longer refuses; new moves are added to the same undo file, so `--undo` restores everything from all runs. Added `--version`. The undo hint quotes paths with spaces.
+- 0.1.0: first release.

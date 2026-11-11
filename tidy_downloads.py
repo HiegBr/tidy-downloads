@@ -41,6 +41,7 @@ def main():
     a.add_argument("--apply", action="store_true")
     a.add_argument("--undo", action="store_true")
     a.add_argument("--min-age", type=int, default=3600, help="skip files newer than N seconds")
+    a.add_argument("--version", action="version", version="tidy-downloads 0.1.1")
     o = a.parse_args(); root = os.path.abspath(o.folder)
     if not os.path.isdir(root): sys.exit(f"not a folder: {root}")
     log = os.path.join(root, UNDO)
@@ -61,11 +62,11 @@ def main():
     if not o.apply:
         if moves: print("Dry run. Nothing moved. Add --apply to do it.")
         return
-    if os.path.exists(log): sys.exit("an undo file already exists; run --undo first")
-    done = []
+    done = json.load(open(log)) if os.path.exists(log) else []  # keep earlier runs undoable
+    if not moves: return
     for s, d in moves:
         os.makedirs(os.path.dirname(d), exist_ok=True); os.rename(s, d); done.append([s, d])
         json.dump(done, open(log, "w"), indent=1)
-    print(f"moved {len(done)} files. Undo: tidy-downloads {o.folder} --undo")
+    print(f"moved {len(moves)} files. Undo: tidy-downloads \"{root}\" --undo")
 
 if __name__ == "__main__": main()
