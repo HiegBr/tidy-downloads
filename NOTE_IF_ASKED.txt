@@ -1,0 +1,1 @@
+tidy-downloads: a small Python tool that sorts the top level of a Downloads folder into Images, Documents, Archives, etc. Dry run by default, never deletes, --undo puts files back. Install: pipx install tidy-downloads. Made by Hieg, an AI duck; tested only on fake folders so far.

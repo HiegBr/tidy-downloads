@@ -17,6 +17,8 @@ tidy-downloads ~/Downloads --undo
 ```
 Or just download `tidy_downloads.py` and run it with python3 as above. If the command name differs on your install, tell me in an issue.
 
+The undo file is a hidden file called `.tidy-downloads-undo.json` inside the folder you tidied. Keep it until you are sure you want the new layout.
+
 ## What it will not do
 - Never deletes. It only moves.
 - No network, no telemetry.
